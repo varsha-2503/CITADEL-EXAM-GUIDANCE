@@ -1,95 +1,189 @@
-<<<<<<< HEAD
-# The Citadel — React Component Architecture
+# 🏰 The Citadel — Intelligent Gateway to Competitive Examinations
 
-India's Education Portal & College Roadmap, refactored from a single HTML file into a clean React component tree.
+> Transforming confusion into clarity for students after Class 12
 
-## Quick Start
+---
 
-```bash
-cd citadel
+## 🚀 Overview
+
+**The Citadel** is an **agentic AI-powered platform** that helps students navigate the complex world of competitive exams and counselling processes in India.
+
+Instead of overwhelming users with information, The Citadel provides a **story-driven, interactive experience** that guides students toward the right career path based on their interests, strengths, and goals.
+
+---
+
+## 🎯 Problem
+
+* Students face **too many career choices** after Class 12
+* Awareness is limited to **JEE / NEET**
+* Counselling processes are **confusing and unstructured**
+* Lack of **personalized guidance**
+
+👉 Result: Wrong decisions, stress, and missed opportunities
+
+---
+
+## 💡 Solution
+
+The Citadel provides:
+
+* 🎯 **Smart Career Discovery** — Suggests paths beyond generic options
+* 📊 **Counselling Navigator** — Step-by-step admission guidance
+* 🤖 **AI Counselor** — Personalized roadmap with reasoning
+* 🌌 **Story-Driven UI** — A guided journey, not a dashboard
+
+---
+
+## 🧠 Key Features
+
+### 1. 🔍 Smart Path Discovery
+
+* Input: stream + interests
+* Output: curated career paths & relevant exams
+* Focus on **non-traditional opportunities**
+
+---
+
+### 2. 📊 Counselling Navigator
+
+* Simplified admission process
+* Timeline-based flow
+* Document checklist
+
+---
+
+### 3. 🤖 AI Counselor
+
+* Context-aware guidance
+* Suggests best-fit options
+* Provides reasoning + roadmap
+
+---
+
+### 4. 🎮 Interactive Experience
+
+* Awwwards-style storytelling UI
+* Smooth transitions & animations
+* Step-by-step guided journey
+
+---
+
+## 🏗️ Tech Stack
+
+* **Frontend:** React (Vite) + Tailwind CSS
+* **Animations:** Framer Motion
+* **Backend:** Firebase (or Node.js)
+* **AI Integration:** Groq API
+* **Data:** Structured dataset (exams + counselling)
+
+---
+
+## ⚙️ How It Works
+
+1. User enters interests and preferences
+2. System maps to relevant domains
+3. Displays suitable exams and colleges
+4. Explains counselling process
+5. AI generates personalized roadmap
+
+---
+
+## 📦 Project Structure
+
+```id="b6h3z0"
+src/
+ ├── components/
+ │    ├── Hero.jsx
+ │    ├── Journey.jsx
+ │    ├── IdentityStep.jsx
+ │    ├── StreamCards.jsx
+ │    └── Roadmap.jsx
+ │
+ ├── services/
+ │    └── ai.js
+ │
+ ├── data/
+ │    └── exams.json
+ │
+ ├── pages/
+ │    └── Home.jsx
+ │
+ └── App.jsx
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file:
+
+```id="m3y8h9"
+VITE_GROQ_API_KEY=your_api_key_here
+```
+
+---
+
+## ▶️ Getting Started
+
+```id="2q9s8k"
+# Clone the repository
+git clone https://github.com/your-username/the-citadel.git
+
+# Navigate to project
+cd the-citadel
+
+# Install dependencies
 npm install
+
+# Run development server
 npm run dev
 ```
 
-Then open `http://localhost:5173`
+---
 
-**Demo login:** `demo@test.com` / `demo123`
+## 🧪 Future Scope
+
+* 🎯 College recommendation engine
+* 👩‍🏫 Mentor-student matching
+* 📊 Career tracking dashboard
+* 🌐 Expansion beyond India
 
 ---
 
-## Project Structure
+## ⚠️ Challenges Faced
 
-```
-citadel/
-├── index.html                        # Vite entry HTML
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.jsx                      # React root render
-    ├── styles/
-    │   └── globals.css               # All CSS: variables, themes, animations,
-    │                                 # components, responsive breakpoints
-    ├── data/
-    │   └── index.js                  # Stream data, state counselling data,
-    │                                 # demo users, API keys, AI system prompt
-    ├── hooks/
-    │   ├── useTheme.js               # Dark/light theme toggle + localStorage
-    │   ├── useAIChat.js              # Groq streaming chat logic
-    │   ├── useScrollEffects.js       # Reveal-on-scroll, counter animation,
-    │   │                             # nav highlight, parallax, tilt
-    │   └── useToast.js               # Toast notifications + scrollToSection
-    └── components/
-        ├── App.jsx                   # Root — auth gate, modal state,
-        │                             # AI query routing, layout
-        ├── PortalBar.jsx             # Fixed top education portal banner
-        ├── PageTransition.jsx        # Full-screen wipe transition overlay
-        ├── DoodleCanvas.jsx          # Floating math symbols background
-        ├── AuthScreen.jsx            # Sign in + sign up panels with animation
-        ├── Nav.jsx                   # Navbar + hamburger + mobile menu
-        ├── HeroSection.jsx           # Hero with stats, CTAs, floating badges
-        ├── MarqueeBand.jsx           # Scrolling text marquee (used twice)
-        ├── StreamsSection.jsx        # 4 stream cards grid
-        ├── StepsSection.jsx          # "How It Works" 4-step cards
-        ├── CounsellingSection.jsx    # Tabbed counselling guide
-        │                             # (Engineering / Medical / Law /
-        │                             #  Design / Commerce / State)
-        ├── StateCounsellingPanel.jsx # 19-state grid with search + filter
-        ├── DetailCard.jsx            # Reusable DetailCard, StratBox, DSection
-        ├── PCMSection.jsx            # PCM stream detail section
-        ├── PCBSection.jsx            # PCB stream detail section
-        ├── StreamDetailSections.jsx  # Commerce + Humanities sections
-        ├── AISection.jsx             # Groq AI chat interface
-        ├── Modal.jsx                 # Stream detail modal (bottom sheet on mobile)
-        └── CTASection.jsx            # CTA section + Footer
-```
+* Structuring unorganized exam data
+* Designing an **agentic AI system**
+* Balancing information with simplicity
+* Creating smooth storytelling UI
 
 ---
 
-## Data Flow
+## 🏆 Hackathon Focus
 
-```
-App.jsx
-  ├── useTheme()           → theme prop to Nav
-  ├── handleAskAI()        → sets pendingQuery → AISection
-  ├── setModalKey()        → opens Modal with stream key
-  └── onSignOut()          → reloads page
-
-AuthScreen
-  └── onAuthenticated()    → sets authed=true in App
-
-Modal
-  └── onAskAI()            → routes through App.handleAskAI
-```
+* Problem-first approach
+* Real-world impact
+* Clean UX over complexity
+* Working prototype with AI integration
 
 ---
 
-## Key Design Decisions
+## 👥 Team
 
-- **Single CSS file** (`globals.css`) — all CSS variables, dark/light themes, animations, and responsive rules live here. No CSS modules or styled-components, matching the original HTML approach.
-- **`data/index.js`** — all content (stream data, state data, AI prompts, credentials) is co-located, making it easy to update without touching components.
-- **Custom hooks** — scroll effects, AI chat, and theme are extracted into hooks so components stay focused on rendering.
-- **`pendingQuery` pattern** — when any "Ask AI" button is clicked anywhere on the page, `App` stores the query and passes it to `AISection` via props, avoiding global state or context.
-- **`runPageTransition`** — exported as a module-level function from `PageTransition.jsx` so `AuthScreen` can trigger it imperatively without prop drilling.
-=======
-# JohriSumati-ops-THE-CITADEL-SOFTWARE-DEVELOPMENT
->>>>>>> c7f670060f70861de1168afabc03fe6fdf317e95
+* Sumati
+* Varsha
+* Vaishnavi
+* Taru
+
+---
+
+## 🌟 Show Your Support
+
+If you like this project, give it a ⭐ and share your feedback!
+
+---
+
+## 🎤 Final Thought
+
+> “We didn’t build another chatbot.
+> We built a system that helps students choose their future with clarity.”
