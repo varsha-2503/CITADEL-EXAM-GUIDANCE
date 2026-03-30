@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { streamData } from '../data';
+import { streamData } from '../data/index.js';
 
 export default function Modal({ streamKey, onClose, onAskAI }) {
   const isOpen = !!streamKey;
