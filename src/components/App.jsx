@@ -15,6 +15,7 @@ import CounsellingSection from './CounsellingSection';
 import PCMSection        from './PCMSection';
 import PCBSection        from './PCBSection';
 import { CommerceSection, HumanitiesSection } from './StreamDetailSections';
+import ExamSearch        from './ExamSearch';        // ← NEW
 import AISection         from './AISection';
 import { CTASection, Footer } from './CTASection';
 import Modal             from './Modal';
@@ -29,16 +30,14 @@ const MARQUEE_2 = ['IIT Delhi','NIT Trichy','IIIT Hyderabad','DTU','NSUT','AIIMS
 export default function App() {
   const { theme, toggleTheme }        = useTheme();
   const [authed, setAuthed]           = useState(false);
-  const [modalKey, setModalKey]       = useState(null);   // which stream modal is open
-  const [pendingAIQuery, setPending]  = useState(null);   // query to send to AI section
+  const [modalKey, setModalKey]       = useState(null);
+  const [pendingAIQuery, setPending]  = useState(null);
 
-  // Global scroll / reveal effects (only after auth)
   useRevealOnScroll();
   useScrollNav();
   useParallax();
   useNavHighlight();
 
-  // Ask AI helper: scroll to AI section + queue the query
   const handleAskAI = useCallback((stream, topic) => {
     const q = `I'm in ${stream} stream. Tell me about ${topic} — what should I know, strategy, and career outcomes?`;
     setPending(q);
@@ -52,17 +51,14 @@ export default function App() {
 
   return (
     <>
-      {/* Always-present overlays */}
       <PageTransition />
       <DoodleCanvas />
       <div className="scroll-bar" id="scroll-bar" />
 
-      {/* Auth gate */}
       {!authed && (
         <AuthScreen onAuthenticated={() => setAuthed(true)} />
       )}
 
-      {/* Main app (always rendered under auth so it's ready) */}
       <PortalBar />
       <Nav theme={theme} toggleTheme={toggleTheme} onSignOut={handleSignOut} />
 
@@ -77,6 +73,7 @@ export default function App() {
         <CommerceSection  onAskAI={handleAskAI} onShowModal={setModalKey} />
         <HumanitiesSection onAskAI={handleAskAI} onShowModal={setModalKey} />
         <CounsellingSection onAskAI={handleAskAI} />
+        <ExamSearch onAskAI={handleAskAI} />  {/* ← NEW — sits between Counselling and AI */}
         <AISection
           pendingQuery={pendingAIQuery}
           onPendingQueryConsumed={() => setPending(null)}
@@ -85,7 +82,6 @@ export default function App() {
         <Footer onSignOut={handleSignOut} />
       </main>
 
-      {/* Stream detail modal */}
       <Modal
         streamKey={modalKey}
         onClose={() => setModalKey(null)}

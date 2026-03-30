@@ -16,12 +16,13 @@ export default function Nav({ theme, toggleTheme, onSignOut }) {
           <span className="nav-brand-name">The Citadel</span>
         </div>
         <ul className="nav-links">
-          <li><a onClick={() => navTo('streams')}     id="nav-streams">Streams</a></li>
-          <li><a onClick={() => navTo('steps')}       id="nav-steps">How It Works</a></li>
-          <li><a onClick={() => navTo('counselling')} id="nav-counselling">Counselling</a></li>
-          <li><a onClick={() => navTo('pcm')}         id="nav-pcm">PCM</a></li>
-          <li><a onClick={() => navTo('pcb')}         id="nav-pcb">PCB</a></li>
-          <li><a onClick={() => navTo('ai-section')}  id="nav-ai">AI Guide</a></li>
+          <li><a onClick={() => navTo('streams')}      id="nav-streams">Streams</a></li>
+          <li><a onClick={() => navTo('steps')}        id="nav-steps">How It Works</a></li>
+          <li><a onClick={() => navTo('counselling')}  id="nav-counselling">Counselling</a></li>
+          <li><a onClick={() => navTo('exam-search')}  id="nav-exam-search">Exam Search</a></li>  {/* ← NEW */}
+          <li><a onClick={() => navTo('pcm')}          id="nav-pcm">PCM</a></li>
+          <li><a onClick={() => navTo('pcb')}          id="nav-pcb">PCB</a></li>
+          <li><a onClick={() => navTo('ai-section')}   id="nav-ai">AI Guide</a></li>
         </ul>
         <div className="nav-right">
           <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light mode">
@@ -40,6 +41,7 @@ export default function Nav({ theme, toggleTheme, onSignOut }) {
         <a onClick={() => navTo('streams')}>📚 Streams</a>
         <a onClick={() => navTo('steps')}>⚙️ How It Works</a>
         <a onClick={() => navTo('counselling')}>🗺️ Counselling Guide</a>
+        <a onClick={() => navTo('exam-search')}>🔍 Exam Search</a>  {/* ← NEW */}
         <a onClick={() => navTo('pcm')}>⚡ PCM</a>
         <a onClick={() => navTo('pcb')}>🧬 PCB</a>
         <a onClick={() => navTo('ai-section')}>🤖 AI Counsellor</a>
